@@ -1,5 +1,5 @@
 //
-//  InstancePropertyViewController.swift
+//  InstanceInitializerViewController.swift
 //  HardDependencies
 //
 //  Created by Hassim, Muhammad Hanis on 28/08/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InstancePropertyViewController: UIViewController {
+class InstanceInitializerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

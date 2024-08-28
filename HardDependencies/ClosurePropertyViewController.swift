@@ -1,5 +1,5 @@
 //
-//  InstancePropertyViewController.swift
+//  ClosurePropertyViewController.swift
 //  HardDependencies
 //
 //  Created by Hassim, Muhammad Hanis on 28/08/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InstancePropertyViewController: UIViewController {
+class ClosurePropertyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
