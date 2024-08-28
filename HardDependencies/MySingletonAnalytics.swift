@@ -8,12 +8,25 @@
 import Foundation
 
 class MySingletonAnalytics {
-    static let shared = MySingletonAnalytics()
+    private static let instance = MySingletonAnalytics()
+    static var shared: MySingletonAnalytics {
+        #if DEBUG
+        if let stubbedInstance = stubbedInstance {
+            stubbedInstance
+        }
+        #endif
+        
+        return instance
+    }
+    
+    #if DEBUG
+    static var stubbedInstance: MySingletonAnalytics?
+    #endif
     
     func track(event: String) {
         Analytics.shared.track(event: event) // Wrap to call the original Analtyics class
         
-        if self !== MySingletonAnalytics.shared {
+        if self !== MySingletonAnalytics.instance {
             print(">> Not the MySingletonAnalytics singleton")
         }
     }
