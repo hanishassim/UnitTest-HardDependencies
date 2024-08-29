@@ -8,7 +8,17 @@
 import UIKit
 
 class ClosureInitializerViewController: UIViewController {
-
+    private let makeAnaltyics: () -> Analytics
+    
+    init(makeAnaltyics: @escaping () -> Analytics = { Analytics.shared }) {
+        self.makeAnaltyics = makeAnaltyics
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +27,7 @@ class ClosureInitializerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Analytics.shared.track(event: "viewDidAppear - \(type(of: self))")
+        makeAnaltyics().track(event: "viewDidAppear - \(type(of: self))")
     }
 
 }
